@@ -5,24 +5,19 @@ import cors from "cors";
 
 const app = express();
 const PORT = 3000;
-const server = http.createServer(app);
+const server = new http.Server(app);
 const io = new Server(server);
 
-
 io.on("connection", (socket) => {
-  console.log("a user connected");
-
-  socket.on("message", (message) => {
-    console.log("message received", message);
-  });
-  io.emit("message", onmessage);
+  console.log("A user connected");
 
   socket.on("disconnect", () => {
-    console.log("a user disconnected");
+    console.log("A user disconnected");
   });
 });
 
 app.use(cors());
-app.listen(PORT, () => {
-  console.log("the server is listening at PORT ", PORT);
+
+server.listen(PORT, () => {
+  console.log("The server is listening at PORT", PORT);
 });

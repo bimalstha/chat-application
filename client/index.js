@@ -7,12 +7,12 @@ socket.on("connect", () => {
   console.log("a user connected");
 });
 
-// socket.on("message", (message) => {
-//   const messageList = document.getElementById("messages");
-//   const newMessage = document.createElement("li");
-//   newMessage.textContent = message;
-//   messageList.appendChild(newMessage);
-// });
+socket.on("message", (message) => {
+  const messageList = document.getElementById("messages");
+  const newMessage = document.createElement("li");
+  newMessage.textContent = message;
+  messageList.appendChild(newMessage);
+});
 
 // function sendMessage(event) {
 //   event.preventDefault();

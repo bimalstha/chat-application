@@ -13,7 +13,7 @@ app.use(
 const httpServer = http.createServer(app);
 
 const serverIo = new Server(httpServer, {
-  cors: {
+  cors: {           //cors policy for socket connection
     origin: "*",
     methods: ["GET", "POST"],
   },
@@ -29,6 +29,7 @@ serverIo.on("connection", (socket) => {
     console.log("user disconnected");
   });
 });
+
 
 httpServer.listen(port, () => {
   console.log(`the server is listening at ${port}`);
